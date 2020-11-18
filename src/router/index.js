@@ -11,10 +11,10 @@ const routes = [
     component: Home
   },
   {
-    path: "/about",
-    name: "About",
+    path: "/add",
+    name: "Add",
     component: () =>
-      import("../views/About.vue")
+      import("../views/Add.vue")
   }
 ];
 

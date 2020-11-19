@@ -8,6 +8,7 @@
       <router-link :to="{ name: 'Edit', params: { song: song } }">
         <button>Edit</button>
       </router-link>
+      <button type="button" v-on:click="deleteSong(song.id)">Delete</button>
     </article>
   </div>
 </template>
@@ -25,6 +26,11 @@ name: "SongList",
      return {
       songs: songRef
      };
+  }, 
+  methods: {
+    deleteSong(el) {
+      songRef.doc(el).delete()
+    }
   }
 };
 </script>

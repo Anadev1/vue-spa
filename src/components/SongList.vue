@@ -1,28 +1,31 @@
 <template>
   <div class="grid-container">
-    <article v-for="song in songs" :key="song.title">
+    <article v-for="song in songs" :key="song.id">
       <img :src="song.image" alt="" />
       <h1>{{ song.title }}</h1>
       <h2>{{ song.artist }}</h2>
       <h3>{{ song.genre }}</h3>
+      <router-link :to="{ name: 'Edit', params: { song: song } }">
+        <button>Edit</button>
+      </router-link>
     </article>
   </div>
 </template>
 
 <script>
-import { songRef } from '../firebase-db';
+import { songRef } from "../firebase-db";
 export default {
-name: 'SongList',
+name: "SongList",
   data() {
     return {
      songs: []
-    }
+    };
   },
   firestore() {
      return {
       songs: songRef
-     }
-  },
+     };
+  }
 };
 </script>
 

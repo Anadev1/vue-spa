@@ -15,6 +15,13 @@ const routes = [
     name: "Add",
     component: () =>
       import("../views/Add.vue")
+  },
+  {
+    path: "/edit",
+    name: "Edit",
+    component: () =>
+      import("../views/Edit.vue"),
+    props: true
   }
 ];
 

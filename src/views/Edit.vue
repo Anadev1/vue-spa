@@ -1,6 +1,6 @@
 <template>
-  <div class="form-container">
-    <h1>Add a song to the list</h1>
+  <div class="edit">
+    <h1>Edit a song</h1>
     <form>
       <input type="text" v-model="song.title" placeholder="title" required />
       <input type="text" v-model="song.artist" placeholder="artist" required />
@@ -17,7 +17,7 @@
       <div>
         <img :src="song.image" class="image-preview" />
       </div>
-      <button type="button" v-on:click="addSong">Add Song</button>
+      <button type="button" v-on:click="editSong">Edit Song</button>
     </form>
   </div>
 </template>
@@ -25,16 +25,9 @@
 <script>
 import { songRef } from '../firebase-db'
 export default {
-  name: 'Add',
-  data () {
-    return {
-      song: {
-        title: '',
-        artist: '',
-        genre: '',
-        image: null,
-      }
-    }
+  name: "Edit",
+  props: {
+    song: Object
   },
   methods: {
     triggerChooseImg () {
@@ -48,8 +41,14 @@ export default {
       }
       fileReader.readAsDataURL(imageFile)
     },
-    addSong () {
-      songRef.add(this.song)
+    editSong () {
+      console.log(this.song);
+      songRef.doc(this.song.id).set({
+        title: this.song.title,
+        artist: this.song.artist,
+        genre: this.song.genre,
+        image: this.song.image
+      });
       this.$router.push('/')
     }
   }

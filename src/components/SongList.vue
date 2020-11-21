@@ -1,16 +1,19 @@
 <template>
-  <div class="grid-container">
-    <article v-for="song in songs" :key="song.id">
-      <img :src="song.image" alt="" />
-      <h1>{{ song.title }}</h1>
-      <h2>{{ song.artist }}</h2>
-      <h3>{{ song.genre }}</h3>
-      <router-link :to="{ name: 'Edit', params: { song: song } }">
-        <button>Edit</button>
-      </router-link>
-      <button type="button" v-on:click="deleteSong(song.id)">Delete</button>
-    </article>
-  </div>
+  <section>
+    <div class="grid-container">
+      <article v-for="song in filteredSongs" :key="song.id">
+        <img :src="song.image" alt="" />
+        <h1>{{ song.title }}</h1>
+        <h2>{{ song.artist }}</h2>
+        <h3>{{ song.genre }}</h3>
+        <router-link :to="{ name: 'Edit', params: { song: song } }">
+          <button>Edit</button>
+        </router-link>
+        <button type="delete" v-on:click="deleteSong(song.id)">Delete</button>
+      </article>
+    </div>
+    <input type="text" v-model="search" placeholder="Search title.." />
+  </section>
 </template>
 
 <script>
@@ -19,17 +22,25 @@ export default {
 name: "SongList",
   data() {
     return {
-     songs: []
+      search: '',
+      songs: []
     };
   },
   firestore() {
      return {
       songs: songRef
-     };
+     }
   }, 
   methods: {
     deleteSong(el) {
       songRef.doc(el).delete()
+    }
+  },
+  computed: {
+    filteredSongs() {
+      return this.songs.filter(song => {
+        return song.title.toLowerCase().includes(this.search.toLowerCase())
+      })
     }
   }
 };

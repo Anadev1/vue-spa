@@ -9,6 +9,9 @@
         <router-link :to="{ name: 'Edit', params: { song: song } }">
           <button>Edit</button>
         </router-link>
+        <router-link :to="{ name: 'Details', params: { song: song } }">
+          <button>Details</button>
+        </router-link>
         <button type="delete" v-on:click="deleteSong(song.id)">Delete</button>
       </article>
     </div>

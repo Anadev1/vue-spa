@@ -68,6 +68,7 @@ input {
   border-top: none;
   border-left: none;
   border-right: none;
+  font-family: "Montserrat", sans-serif;
 }
 form :nth-child(5) {
   display: none;
@@ -81,6 +82,7 @@ form :nth-child(5) {
   color: #fafafa;
   border: none;
   border-radius: 3px;
+  font-family: "Montserrat", sans-serif;
 }
 
 #add-btn {
@@ -90,5 +92,6 @@ form :nth-child(5) {
   color: #fafafa;
   border: none;
   border-radius: 3px;
+  font-family: "Montserrat", sans-serif;
 }
 </style>

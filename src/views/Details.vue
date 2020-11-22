@@ -5,7 +5,10 @@
     <h1>{{ song.title }}</h1>
     <h2>{{ song.artist }}</h2>
     <h3>{{ song.genre }}</h3>
-    <button type="delete" v-on:click="deleteSong(song.id)">Delete</button>
+    <a :href="song.spotify" v-if="song.spotify">Open in Spotify </a>
+    <button type="delete" v-on:click="deleteSong(song.id)" id="delete-btn">
+      Delete
+    </button>
   </div>
 </template>
 
@@ -26,4 +29,22 @@ name: "Details",
 </script>
 
 <style>
+img {
+  max-width: 300px;
+  width: 100%;
+}
+#delete-btn {
+  width: 75px;
+  height: 4vh;
+  background-color: #c24332;
+  color: #fafafa;
+  border: none;
+  border-radius: 3px;
+  font-family: "Montserrat", sans-serif;
+}
+a {
+  display: block;
+  color: #2e303f;
+  margin-bottom: 2vh;
+}
 </style>

@@ -11,7 +11,7 @@
         <img :src="song.image" alt="" />
         <h1>{{ song.title }}</h1>
         <h2>{{ song.artist }}</h2>
-        <h3>{{ song.genre }}</h3>
+        <p>{{ song.genre }}</p>
         <a :href="song.spotify" v-if="song.spotify">Open in Spotify </a>
         <div id="buttons">
           <router-link :to="{ name: 'Edit', params: { song: song } }">
@@ -79,10 +79,18 @@ section {
   .grid-container {
     grid-template-columns: 50% 50%;
   }
+  .grid-container article {
+    width: 35vw;
+    margin: 0 auto;
+  }
 }
 @media (min-width: 992px) {
   .grid-container {
     grid-template-columns: 33.33% 33.33% 33.33%;
+  }
+  .grid-container article {
+    width: 20vw;
+    margin: 0 auto;
   }
 }
 .grid-container article {
@@ -108,6 +116,7 @@ section {
   border-top: none;
   border-left: none;
   border-right: none;
+  font-family: "Montserrat", sans-serif;
 }
 
 a {
@@ -123,41 +132,44 @@ h2 {
   font-size: 1.5em;
 }
 
-h3 {
-  font-size: 1em;
+p {
+  font-size: 1.2em;
 }
 
 #buttons {
   display: flex;
   margin: 3vh auto 3vh;
   justify-content: space-between;
-  width: 80vw;
+  max-width: 75vw;
 }
 
 #edit-btn {
-  width: 20vw;
+  width: 75px;
   height: 4vh;
   background-color: #2e303f;
   color: #fafafa;
   border: none;
   border-radius: 3px;
+  font-family: "Montserrat", sans-serif;
 }
 
 #details-btn {
-  width: 20vw;
+  width: 75px;
   height: 4vh;
   background-color: #2e303f;
   color: #fafafa;
   border: none;
   border-radius: 3px;
+  font-family: "Montserrat", sans-serif;
 }
 
 #delete-btn {
-  width: 20vw;
+  width: 75px;
   height: 4vh;
   background-color: #c24332;
   color: #fafafa;
   border: none;
   border-radius: 3px;
+  font-family: "Montserrat", sans-serif;
 }
 </style>

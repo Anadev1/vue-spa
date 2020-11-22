@@ -5,6 +5,7 @@
       <input type="text" v-model="song.title" placeholder="title" required />
       <input type="text" v-model="song.artist" placeholder="artist" required />
       <input type="text" v-model="song.genre" placeholder="genre" required />
+      <input type="text" v-model="song.spotify" placeholder="spotify link" />
       <input
         type="file"
         ref="fileInput"
@@ -17,7 +18,7 @@
       <div>
         <img :src="song.image" class="image-preview" />
       </div>
-      <button type="button" v-on:click="addSong">Add Song</button>
+      <button type="button" v-on:click="addSong" id="add-btn">Add Song</button>
     </form>
   </div>
 </template>
@@ -33,6 +34,7 @@ export default {
         artist: '',
         genre: '',
         image: null,
+        spotify: ''
       }
     }
   },
@@ -60,8 +62,33 @@ export default {
 input {
   display: block;
   margin: auto;
+  width: 90%;
+  height: 6vh;
+  border-bottom: 1px #2e303f solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
-form :nth-child(4) {
+form :nth-child(5) {
   display: none;
+}
+
+.choose-image {
+  margin-top: 3vh;
+  width: 90%;
+  height: 4vh;
+  background-color: #2e303f;
+  color: #fafafa;
+  border: none;
+  border-radius: 3px;
+}
+
+#add-btn {
+  width: 40vw;
+  height: 6vh;
+  background-color: #63948c;
+  color: #fafafa;
+  border: none;
+  border-radius: 3px;
 }
 </style>

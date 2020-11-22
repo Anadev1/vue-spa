@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Songs</router-link>
       <router-link to="/add">Add</router-link>
     </div>
     <router-view />
@@ -10,23 +10,31 @@
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #2e303f;
+  max-width: 100vw;
 }
 
 #nav {
-  padding: 30px;
+  max-width: 100%;
+  height: 7vh;
+  background-color: #2e303f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #fafafa;
+  margin: 10px;
+  text-decoration: none;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #63948c;
 }
 </style>
